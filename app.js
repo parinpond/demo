@@ -11,16 +11,19 @@ app.use(express.json());
 app.set("view engine","ejs");
 app.set("views","views");
 app.use(authRoute);
-
 app.get("/",homeController);
 app.get("*",pageNotFoundController);
+
+
 mongoose
 .connect(
-    "mongodb+srv://dbdemo:1234demoeiei@cluster0.p0qdz.mongodb.net/dbdemo?retryWrites=true&w=majority",
+    "mongodb+srv://:@cluster0.p0qdz.mongodb.net/?retryWrites=true&w=majority",
     {useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex:true,}
-    ).then(()=>{
+    )
+    .then(()=>{
     console.log("Database Connected!");
-}).catch(()=>{
+})
+.catch(()=>{
     console.log("Cannot Database to Connected!");
 });
 app.listen(port,function(){

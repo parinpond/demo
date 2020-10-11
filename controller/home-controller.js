@@ -1,3 +1,4 @@
+const verifyToken =require("../utilities/verify");
 const home =(req,res,next)=>{
     res.render("home",{
         data:{
